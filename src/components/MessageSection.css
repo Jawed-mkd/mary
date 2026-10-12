@@ -1,0 +1,104 @@
+/* ── Message Section ───────────────────────────────────────── */
+.message-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding) 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.message-container {
+  max-width: var(--content-max-width);
+  width: 100%;
+}
+
+/* ── Flourish ──────────────────────────────────────────────── */
+.message-flourish {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-rose);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.message-section--visible .message-flourish {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Heading ───────────────────────────────────────────────── */
+.message-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--color-midnight);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;
+}
+
+.message-section--visible .message-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Body ──────────────────────────────────────────────────── */
+.message-body {
+  text-align: center;
+}
+
+.message-paragraph {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.message-section--visible .message-paragraph {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays via inline style animationDelay re-mapped to transition-delay */
+.message-section--visible .message-paragraph:nth-child(1) { transition-delay: 0.3s; }
+.message-section--visible .message-paragraph:nth-child(2) { transition-delay: 0.45s; }
+.message-section--visible .message-paragraph:nth-child(3) { transition-delay: 0.6s; }
+.message-section--visible .message-paragraph:nth-child(4) { transition-delay: 0.75s; }
+.message-section--visible .message-paragraph:nth-child(5) { transition-delay: 0.9s; }
+
+.message-paragraph:last-child {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+  color: var(--color-midnight-soft);
+  margin-top: 0.5rem;
+}
+
+/* ── Divider ───────────────────────────────────────────────── */
+.message-divider {
+  text-align: center;
+  margin-top: 3rem;
+  opacity: 0;
+  transition: opacity 1s ease 1.2s;
+}
+
+.message-section--visible .message-divider {
+  opacity: 1;
+}
+
+.message-divider__star {
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  letter-spacing: 1rem;
+}

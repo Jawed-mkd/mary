@@ -1,0 +1,165 @@
+/* ── Kind Words Section ────────────────────────────────────── */
+.kind-words-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding) 2rem;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(213, 200, 230, 0.12) 0%,
+    transparent 60%
+  );
+}
+
+.kind-words-container {
+  max-width: var(--content-max-width);
+  width: 100%;
+  text-align: center;
+}
+
+.kind-words-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 500;
+  color: var(--color-midnight);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.kind-words-section--visible .kind-words-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Note Display ──────────────────────────────────────────── */
+.kind-words-note-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  min-height: 200px;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.kind-words-section--visible .kind-words-note-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.kind-words-note {
+  position: relative;
+  background: rgba(253, 248, 240, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 160, 160, 0.12);
+  border-radius: 12px;
+  padding: 2.5rem 2.5rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow:
+    0 4px 24px rgba(192, 128, 128, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  /* Subtle paper texture via gradient */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 50%,
+      rgba(232, 213, 176, 0.05) 100%
+    );
+}
+
+.kind-words-note--fading {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+.kind-words-note__quote {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--color-blush);
+  line-height: 1;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.2rem;
+  opacity: 0.5;
+}
+
+.kind-words-note__quote--end {
+  left: auto;
+  right: 1.2rem;
+  top: auto;
+  bottom: 0.2rem;
+}
+
+.kind-words-note__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-midnight-soft);
+}
+
+.kind-words-note__pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: var(--color-gold);
+}
+
+/* ── Button ────────────────────────────────────────────────── */
+.kind-words-button {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--color-rose-deep), var(--color-dusty-rose));
+  color: var(--color-white);
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+  box-shadow: 0 4px 16px rgba(192, 128, 128, 0.25);
+  opacity: 0;
+  animation: none;
+}
+
+.kind-words-section--visible .kind-words-button {
+  opacity: 1;
+  transition: opacity 0.8s ease 0.4s,
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+.kind-words-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(192, 128, 128, 0.35);
+}
+
+.kind-words-button:active {
+  transform: translateY(0);
+}
+
+/* ── Progress ──────────────────────────────────────────────── */
+.kind-words-progress {
+  font-family: var(--font-handwritten);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.5s;
+}
+
+.kind-words-section--visible .kind-words-progress {
+  opacity: 0.7;
+}

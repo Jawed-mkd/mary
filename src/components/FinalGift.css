@@ -1,0 +1,196 @@
+/* ── Final Gift Section ────────────────────────────────────── */
+.final-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding) 2rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.final-container {
+  max-width: var(--content-max-width);
+  width: 100%;
+  text-align: center;
+}
+
+.final-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 500;
+  color: var(--color-midnight);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.final-section--visible .final-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Star Button ───────────────────────────────────────────── */
+.final-star-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s;
+}
+
+.final-section--visible .final-star-wrapper {
+  opacity: 1;
+}
+
+.final-star-button {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background: rgba(232, 213, 176, 0.1);
+  transition: transform var(--transition-smooth), background var(--transition-smooth);
+  animation: star-glow-pulse 3s ease-in-out infinite;
+}
+
+.final-star-button:hover {
+  transform: scale(1.1);
+  background: rgba(232, 213, 176, 0.2);
+}
+
+.final-star-button--clicked {
+  animation: star-pop 0.6s ease forwards;
+}
+
+@keyframes star-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(232, 213, 176, 0.2), 0 0 40px rgba(232, 213, 176, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(232, 213, 176, 0.4), 0 0 60px rgba(232, 213, 176, 0.2);
+  }
+}
+
+@keyframes star-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+.final-star-svg {
+  display: block;
+}
+
+.final-star-hint {
+  font-family: var(--font-handwritten);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ── Sparkles ──────────────────────────────────────────────── */
+.final-sparkles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.final-sparkle {
+  position: absolute;
+  font-size: 0.6rem;
+  color: var(--color-gold);
+  animation: sparkle-burst 0.8s ease forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes sparkle-burst {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(var(--distance));
+    opacity: 0;
+  }
+}
+
+/* ── Revealed Message ──────────────────────────────────────── */
+.final-revealed {
+  margin-bottom: 3rem;
+}
+
+.final-revealed__line {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--color-midnight-soft);
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fade-in-up-final 0.8s ease forwards;
+}
+
+@keyframes fade-in-up-final {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.final-revealed__line:last-child {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  margin-top: 0.5rem;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.final-footer {
+  margin-top: 4rem;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s ease 1.5s, transform 0.8s ease 1.5s;
+}
+
+.final-footer--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final-footer__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.5rem;
+  color: var(--color-gold-light);
+}
+
+.final-footer__text {
+  font-family: var(--font-handwritten);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .final-star-button {
+    animation: none;
+    box-shadow: 0 0 20px rgba(232, 213, 176, 0.2);
+  }
+  .final-sparkle {
+    animation: none;
+    display: none;
+  }
+  .final-revealed__line {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

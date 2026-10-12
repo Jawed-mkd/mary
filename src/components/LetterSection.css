@@ -1,0 +1,172 @@
+/* ── Letter Section ────────────────────────────────────────── */
+.letter-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding) 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.letter-container {
+  max-width: var(--content-max-width);
+  width: 100%;
+  text-align: center;
+}
+
+.letter-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 500;
+  color: var(--color-midnight);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-section--visible .letter-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reveal Button ─────────────────────────────────────────── */
+.letter-reveal-button {
+  font-family: var(--font-handwritten);
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  color: var(--color-midnight-soft);
+  background: rgba(253, 248, 240, 0.9);
+  border: 1px solid rgba(212, 160, 160, 0.2);
+  border-radius: 50px;
+  margin-bottom: 2.5rem;
+  transition:
+    background var(--transition-smooth),
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth);
+  opacity: 0;
+  animation: none;
+}
+
+.letter-section--visible .letter-reveal-button {
+  opacity: 1;
+  transition: opacity 0.8s ease 0.2s,
+    background var(--transition-smooth),
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.letter-reveal-button:hover {
+  background: var(--color-cream);
+  border-color: rgba(212, 160, 160, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ── Paper ─────────────────────────────────────────────────── */
+.letter-paper {
+  position: relative;
+  background: rgba(253, 248, 240, 0.95);
+  border: 1px solid rgba(212, 160, 160, 0.1);
+  border-radius: 16px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow:
+    0 4px 32px rgba(192, 128, 128, 0.06),
+    0 1px 4px rgba(0, 0, 0, 0.02);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+
+  /* Subtle paper texture */
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(232, 213, 176, 0.04) 100%
+    );
+}
+
+.letter-section--visible .letter-paper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-paper__edge {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(212, 160, 160, 0.15),
+    transparent
+  );
+}
+
+/* ── Content ───────────────────────────────────────────────── */
+.letter-content {
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.letter-paragraph {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 2vw, 1rem);
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 1.3rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.letter-paragraph--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-paragraph--greeting {
+  font-family: var(--font-handwritten);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  color: var(--color-midnight);
+  margin-bottom: 1.8rem;
+}
+
+/* ── Closing ───────────────────────────────────────────────── */
+.letter-closing {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 160, 160, 0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.letter-closing--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-closing__text {
+  font-family: var(--font-handwritten);
+  font-size: 1.2rem;
+  color: var(--color-midnight-soft);
+  margin-bottom: 1rem;
+}
+
+.letter-closing__final {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.letter-closing__signature {
+  font-family: var(--font-handwritten);
+  font-size: 1.4rem;
+  color: var(--color-midnight);
+}

@@ -1,0 +1,221 @@
+/* ── Peace Section ─────────────────────────────────────────── */
+.peace-section {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding) 2rem;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(44, 42, 74, 0.04) 50%,
+    transparent 100%
+  );
+}
+
+.peace-container {
+  max-width: var(--content-max-width);
+  width: 100%;
+  text-align: center;
+}
+
+.peace-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 500;
+  color: var(--color-midnight);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.peace-section--visible .peace-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Orb ───────────────────────────────────────────────────── */
+.peace-orb-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  min-height: 220px;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s;
+}
+
+.peace-section--visible .peace-orb-wrapper {
+  opacity: 1;
+}
+
+.peace-orb {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease;
+}
+
+.peace-orb--idle {
+  animation: orb-idle-pulse 4s ease-in-out infinite;
+}
+
+.peace-orb--breathe-in {
+  animation: orb-breathe-in 4s ease-in-out forwards;
+}
+
+.peace-orb--hold {
+  transform: scale(1.5);
+}
+
+.peace-orb--breathe-out {
+  animation: orb-breathe-out 5s ease-in-out forwards;
+}
+
+@keyframes orb-idle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes orb-breathe-in {
+  from { transform: scale(1); }
+  to { transform: scale(1.5); }
+}
+
+@keyframes orb-breathe-out {
+  from { transform: scale(1.5); }
+  to { transform: scale(1); }
+}
+
+.peace-orb__inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 40% 35%,
+    var(--color-lavender-light),
+    var(--color-lavender),
+    var(--color-rose)
+  );
+  opacity: 0.7;
+  position: relative;
+  z-index: 2;
+}
+
+.peace-orb__glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(213, 200, 230, 0.4) 0%,
+    rgba(213, 200, 230, 0.1) 50%,
+    transparent 70%
+  );
+  z-index: 1;
+}
+
+.peace-orb__ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgba(213, 200, 230, 0.3);
+  z-index: 3;
+  animation: ring-rotate 12s linear infinite;
+}
+
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Phase Label ───────────────────────────────────────────── */
+.peace-phase-label {
+  font-family: var(--font-handwritten);
+  font-size: 1.3rem;
+  color: var(--color-midnight-soft);
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Controls ──────────────────────────────────────────────── */
+.peace-controls {
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.4s;
+}
+
+.peace-section--visible .peace-controls {
+  opacity: 1;
+}
+
+.peace-button {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 0.85rem 2rem;
+  background: rgba(253, 248, 240, 0.9);
+  color: var(--color-midnight-soft);
+  border: 1px solid rgba(212, 160, 160, 0.2);
+  border-radius: 50px;
+  transition:
+    background var(--transition-smooth),
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+.peace-button:hover {
+  background: rgba(253, 248, 240, 1);
+  border-color: rgba(212, 160, 160, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(192, 128, 128, 0.12);
+}
+
+.peace-button--stop {
+  border-color: var(--color-lavender);
+}
+
+/* ── Message ───────────────────────────────────────────────── */
+.peace-message {
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.9;
+  color: var(--color-text-light);
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+}
+
+.peace-section--visible .peace-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .peace-orb--idle,
+  .peace-orb--breathe-in,
+  .peace-orb--breathe-out {
+    animation: none;
+  }
+  .peace-orb--hold {
+    transform: scale(1.2);
+  }
+  .peace-orb__ring {
+    animation: none;
+  }
+}

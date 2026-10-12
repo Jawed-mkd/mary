@@ -1,0 +1,140 @@
+/* ============================================================
+   GLOBAL STYLES — For Mary ✨
+   ============================================================ */
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+:root {
+  /* Colors */
+  --color-cream: #fdf8f0;
+  --color-cream-dark: #f5ede0;
+  --color-blush: #f2d5d0;
+  --color-blush-light: #fae8e4;
+  --color-rose: #d4a0a0;
+  --color-rose-deep: #c08080;
+  --color-dusty-rose: #c9a0a0;
+  --color-lavender: #d5c8e6;
+  --color-lavender-light: #e8e0f0;
+  --color-midnight: #2c2a4a;
+  --color-midnight-soft: #3d3a5c;
+  --color-text: #4a4458;
+  --color-text-light: #7a7490;
+  --color-text-muted: #9d96ab;
+  --color-gold: #d4a574;
+  --color-gold-light: #e8c9a0;
+  --color-white: #ffffff;
+  --color-white-translucent: rgba(255, 255, 255, 0.6);
+  --color-star: #e8d5b0;
+
+  /* Typography */
+  --font-serif: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-handwritten: "Caveat", "Comic Sans MS", cursive;
+
+  /* Spacing */
+  --section-padding: clamp(3rem, 8vw, 7rem);
+  --content-max-width: 720px;
+
+  /* Transitions */
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-gentle: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Reduced Motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Reset & Base ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-cream);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-blush);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rose);
+}
+
+/* ── Selection ─────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-blush);
+  color: var(--color-midnight);
+}
+
+/* ── Utility ───────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
